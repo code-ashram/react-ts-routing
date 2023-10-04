@@ -6,15 +6,15 @@ import { getComments, getPosts } from './api'
 import './App.css'
 
 const App = () => {
-  // const [posts, setPosts] = useState<Post[]>()
-  const [comments, setComments] = useState<Comment[]>()
+  const [posts, setPosts] = useState<Post[]>()
+  // const [comments, setComments] = useState<Comment[]>()
 
   useEffect(() => {
     const controller = new AbortController()
     const { signal } = controller
 
-    // getPosts(signal).then((response) => setPosts(response))
-    getComments(signal, 1).then((response) => setComments(response))
+    getPosts(signal).then((response) => setPosts(response))
+    // getComments(signal, 1).then((response) => setComments(response))
 
     return () => {
       controller.abort()
@@ -31,14 +31,14 @@ const App = () => {
 
       <main>
         <section>
-          <ul>
-            {/* {posts?.map((post) => { */}
-            {/*   return <li key={post.id}>{post.title}</li> */}
-            {/* })} */}
-            {comments?.map((comment) => {
-              return <li key={comment.id}>{comment.name}</li>
+          <ol>
+            {posts?.map((post) => {
+              return <li key={post.id}>{post.title}</li>
             })}
-          </ul>
+            {/* {comments?.map((comment) => { */}
+            {/*   return <li key={comment.id}>{comment.name}</li> */}
+            {/* })} */}
+          </ol>
         </section>
       </main>
     </div>
