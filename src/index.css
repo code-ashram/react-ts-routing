@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #2c2626;
 }
 
 #root {
@@ -23,6 +24,14 @@ nav {
   color: white;
 }
 
+nav a:last-of-type {
+  margin-left: 20px;
+}
+
+nav a.active {
+  color: #fb7e00;
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -32,13 +41,13 @@ a {
 main {
   display: flex;
   justify-content: center;
-  background-color: #2c2626;
+  text-align: center;
+  color: white;
 }
 
-ol {
+ul {
   list-style: none;
   font-size: 22px;
-  color: white;
 }
 
 li:not(:first-of-type) {
@@ -53,10 +62,18 @@ li {
   transition: color 0.3s ease;
 }
 
-li:hover, a:hover {
+h1 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.post:hover, a:hover {
   color: #dada38;
 }
 
-li:active, a:active {
+.post:active, a:active {
   color: #fb7e00;
 }

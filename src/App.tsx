@@ -1,44 +1,38 @@
-import { useEffect, useState } from 'react'
+import Header from './components/Header/Header.tsx'
 
-import { Comment, Post } from './api/models.ts'
-import { getComments, getPosts } from './api'
+import { Redirect, Route, Switch } from 'react-router-dom'
+
+import PostsList from './pages/PostsList/PostsList.tsx'
+import Post from './pages/Post/Post.tsx'
+import Home from './pages/Home/Home.tsx'
 
 import './App.css'
 
 const App = () => {
-  const [posts, setPosts] = useState<Post[]>()
-  // const [comments, setComments] = useState<Comment[]>()
-
-  useEffect(() => {
-    const controller = new AbortController()
-    const { signal } = controller
-
-    getPosts(signal).then((response) => setPosts(response))
-    // getComments(signal, 1).then((response) => setComments(response))
-
-    return () => {
-      controller.abort()
-    }
-  }, [])
 
   return (
     <div>
-      <header>
-        <nav>
-          <a href="#">Home</a>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         <section>
-          <ol>
-            {posts?.map((post) => {
-              return <li key={post.id}>{post.title}</li>
-            })}
-            {/* {comments?.map((comment) => { */}
-            {/*   return <li key={comment.id}>{comment.name}</li> */}
-            {/* })} */}
-          </ol>
+          <Switch>
+            <Route path="/" exact>
+              <Redirect to="/home" />
+            </Route>
+
+            <Route path="/home">
+              <Home />
+            </Route>
+
+            <Route path="/posts" exact>
+              <PostsList />
+            </Route>
+
+            <Route path="/posts/:postId">
+              <Post />
+            </Route>
+          </Switch>
         </section>
       </main>
     </div>
