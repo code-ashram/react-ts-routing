@@ -1,0 +1,32 @@
+:local(.postsListItem) {
+  padding: 10px;
+  font-size: 22px;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+:local(.postsList) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:local(.postsListItem):hover {
+  color: #efc460;
+}
+
+:local(.postsLink) {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+:local(.postsLink):not(:first-of-type) {
+  margin-top: 10px;
+}
+
+:local(.postsListItem):active {
+  text-decoration: underline;
+}

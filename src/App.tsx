@@ -1,41 +1,34 @@
-import Header from './components/Header/Header.tsx'
-
 import { Redirect, Route, Switch } from 'react-router-dom'
 
-import PostsList from './pages/PostsList/PostsList.tsx'
-import Post from './pages/Post/Post.tsx'
-import Home from './pages/Home/Home.tsx'
+import Layout from './components/Layout'
+import Home from './pages/Home.tsx'
+import PostsList from './components/PostsList'
+import PostDetails from './pages/PostDetails.tsx'
 
-import './App.css'
+import './App.module.css'
 
 const App = () => {
 
   return (
-    <div>
-      <Header />
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/home" />
+        </Route>
 
-      <main>
-        <section>
-          <Switch>
-            <Route path="/" exact>
-              <Redirect to="/home" />
-            </Route>
+        <Route path="/home">
+          <Home />
+        </Route>
 
-            <Route path="/home">
-              <Home />
-            </Route>
+        <Route path="/posts" exact>
+          <PostsList/>
+        </Route>
 
-            <Route path="/posts" exact>
-              <PostsList />
-            </Route>
-
-            <Route path="/posts/:postId">
-              <Post />
-            </Route>
-          </Switch>
-        </section>
-      </main>
-    </div>
+        <Route path="/posts/:postId">
+          <PostDetails/>
+        </Route>
+      </Switch>
+    </Layout>
   )
 }
 

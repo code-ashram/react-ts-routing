@@ -1,0 +1,29 @@
+:local(.header) {
+  padding: 20px;
+  background-color: dodgerblue;
+}
+
+:local(.nav) {
+  text-align: center;
+}
+
+:local(.nav) a {
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+:local(.nav) a:hover {
+  color: #efc460;
+}
+
+:local(.nav) a:not(:first-of-type) {
+  margin-left: 24px;
+}
+
+:local(.main) {
+  padding: 20px;
+  text-align: center;
+}

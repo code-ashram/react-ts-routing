@@ -1,0 +1,28 @@
+:local(.commentList) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+:local(.comment) {
+  padding: 0 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: left;
+}
+
+:local(.comment):not(:first-child) {
+  margin-top: 20px;
+}
+
+:local(.commentTitle) {
+  font-size: 22px;
+}
+
+:local(.commentAuthor) {
+  color: darkgrey;
+}
+
+:local(.commentText) {
+  font-size: 20px;
+}
